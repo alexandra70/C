@@ -1,28 +1,50 @@
 #include <stdio.h>
+#include <string.h>
+#include<stdlib.h>
+
+
+void f(char* s) { 
+    printf("|%c|", *s);
+
+    if(strlen(s) >= 1) { 
+        f(s + 1);
+    }
+
+   // printf("%s\n", (int*)s);
+}
 
 int main() {
 
-    int x[2] = {5, 6};
-    const int* p = &x;
 
-   // printf("|%d|\n", *(++p)); ----- ce afiseaza linia asta
+///execrcitiul 2
+    char* x = (char*)calloc(10, sizeof(int));
 
-    /* ideea e ca *p = adresa lui x
-        x exista undeva in memorie si are o adresa, acest x e de fapt
-        incpeutul vectorului meu. Acum pointerul meu p pointeaza spre adresa lui x
-        adica unde gasesc adresa adresa vectorului. Acum dc ma uit sa vad ce e la acel pointer observ ca
-        este de fapt evident x. adica p si x referea ac zona de memorie, dc ma uit sa vad ce gasesc 
-        la p[1] vad ca e lafel ca in cazul lui v[1].
-        deci p = ce gaseste la adresa lui x, iar la adresa lui x se afla evident adresa de niceput
-        a vectorului meu. 
-    */
+    for(int i = 0; i < 10; i ++ ) { 
+        x[i] = i % 4 == 1; 
+    }
 
-     printf("|%d|\n", p);
-     printf("|%d|\n", x);
+     for(int i = 0; i < 10; i ++ ) { 
+         //castul de mai jos nu e ok, pt ca eu vreau sa afisez un int, plus ca fac cast la un pointer
+        printf("%d | %d\n", i , (int*)x[i]); 
+    }
+    
 
-    printf("|%d|\n", *p);
-    printf("|%d|\n", &x);
-    printf("eu mai sunt aici");
+
+    //exercitiul 3
+    char str[30] = "Trec cu nota mare la PC!";
+
+    char bla[10] = "aaabbbccc";
+    char *bla2 = bla+3;
+    //bla = "bababababababa";
+    memcpy(bla, bla2, 6);
+    puts(bla);
+    memcpy(bla + 17, str + 12, 13);
+    puts(bla);
+
+    memmove(str + 17, str + 12, 13);
+    puts(str);
+    memcpy(str + 17, str + 12, 13);
+    puts(str);
 
     return 0;
 }
