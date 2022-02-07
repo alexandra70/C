@@ -1,5 +1,5 @@
-
-
+#include<stdio.h>
+#include<stdlib.h>
 
 typedef struct{
 	unsigned char[3] param;
