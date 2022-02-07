@@ -95,11 +95,6 @@ TSofer** alocaSoferi(int nrSoferi, int* nrCurseSoferi) {
 //în parte.Funcția trebuie să întoarcă atât numărul de șoferi citiți din fișier(variabilă int), cât și datele despre 
 //șoferi(variabilă de tip TSofer**).
 
-typedef struct TCursa {
-	double startX;
-	double startY;
-	char stare;
-} TCursa;
 DateSoferi* citesteDate(FILE* in) {
 
 	DateSoferi* data = malloc(sizeof(DateSoferi));
@@ -199,27 +194,6 @@ TSofer** maxVolume(TSofer** soferi, int nrSoferi, int x, int y, int nr) {
 
 	return soferiD
 }
-
-
-
-
-typedef struct TCursa {
-	double startX;
-	double startY; //locatia de start
-	//iau asa 0000 xabc - x-bit anulata sau nu, toate incep ca anulate = 0
-	//urm abc suficient sa reprezint 5 (max de stele) toti pe 0 => cursa are 0 stele
-	//101 => 4 + 1 = 5; cu trei bti pot rep toate nr care ma intereseaza
-	char stare; //cursa anulată sau nu, cursă în desfășurare, nr stele(între 0 - 5)
-
-} TCursa;
-typedef struct TSofer {
-	char nume[20];
-	char nrMasina[8]; // JJ  NNN   LLL
-	double locatieX;
-	double locatieY;
-	unsigned int nrCurse;
-	TCursa** curse;
-} TSofer;
 
 
 void dezalocSofer(TSofer* sofer) {
