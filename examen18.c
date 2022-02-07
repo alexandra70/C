@@ -119,15 +119,7 @@ TSursa** citesc(FILE* in) {
 
 //1.5.Implementați o funcție care detectează un ciclu constant(începe și se termină cu aceeași persoană, iar toate tranzacțiile implicate 
 //au aceeași valoare numerică) în lanțul de tranzacții al unei surse.În caz că există un astfel de ciclu, eliminati - l din lanț :
-
-
-typedef struct TTranzactie {
-	char* nume;
-	double suma;
-	struct TTranzactie* next;
-} TTranzactie;
-
-
+//dc am timp trebuie refacut aici!!!!!!!!!!!!!
 void detecteazaSiEliminaCiclu(TSursa* sursa) {
 
 	int ies = 0;
@@ -158,21 +150,7 @@ void detecteazaSiEliminaCiclu(TSursa* sursa) {
 	}
 	return;
 }
-typedef struct TTranzactie {
-	char* nume;
-	double suma;
-	struct TTranzactie* next;
 
-	int nr_tranz;
-} TTranzactie;
-
-
-typedef struct TSursa {
-	unsigned char id;
-	char time[10];
-	unsigned int lung;
-	struct TTranzactie* lantTranzactii;
-} TSursa;
 //1.6.Realizați o funcție care să calculeze persoana cu cele mai multe tranzacții în toate lanțurile dintr - un an dat.
 char* persoanaTranzactiiMax(TSursa** surse, unsigned int an) {
 
